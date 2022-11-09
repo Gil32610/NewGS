@@ -1,6 +1,6 @@
 package Game;
 
-public enum AgeRating {
+public enum ageRating {
     L("Adequado para todas as idades."),
     M10("Pode conter cenas de violência e linguagem imprópria moderad."),
     M12("Pode conter cenas de agressão física, insinuação de consumo de drogas e relações sexuais."),
@@ -10,7 +10,7 @@ public enum AgeRating {
 
     private String description;
 
-    private AgeRating(String description) {
+    private ageRating(String description) {
         this.description = description;
     }
 

@@ -1,39 +1,35 @@
 package Store;
-
-import Person.*;
-import LinkedList.*;
-import Game.*;
+import Functions.*;
+import Person.Developer;
+import Person.User;
+import LinkedList.SinglyLinkedList;
 import java.util.Scanner;
-import Game.AgeRating;
+import static java.lang.Character.toLowerCase;
 
 public class GameSotp {
     public static void main(String[] args) {
+        SinglyLinkedList<User> customerList = new SinglyLinkedList<>();
+        SinglyLinkedList<Developer> devList = new SinglyLinkedList<>();
         Scanner s = new Scanner(System.in);
-        String fullname, email, nationality, cpf, username;
-        Integer age;
-        Game g;
-        User user;
-        AgeRating aRating;
-        int op, i;
-
-        System.out.println("Informe o nome completo: ");
-        fullname = s.nextLine();
-        System.out.println("Informe a nacionalidade: ");
-        nationality = s.nextLine();
-        System.out.println("Informe o CPF: ");
-        cpf = s.nextLine();
-        System.out.println("Informe o email:");
-        email = s.nextLine();
-        System.out.println("Informe o nome de usuário: ");
-        username = s.nextLine();
-        System.out.println("Informe a idade: ");
-        age = Integer.parseInt(s.nextLine());
-        while (age < 0) {
-            System.out.println("Idade inválida! Digite novamente:");
-            age = Integer.parseInt(s.nextLine());
+        int intOption;
+        char option;
+        System.out.println("Deseja fazer um registro como Developer?(S/N)");
+        option = toLowerCase(s.next().charAt(0));
+        switch (option) {
+            case 's':
+                System.out.println("Prosseguindo registro como developer!");
+                devList.addFirst(Functions.registerConsole(true));
+                break;
+            case 'n':
+                System.out.println("Prosseguindo registro como cliente!");
+                customerList.addFirst(Functions.registerConsole(false));
+                break;
         }
-        user = new User(cpf, fullname, nationality, email, username, age);
-
+        intOption = Login.loginChoice();
+        if(intOption == 1){
+            Login.login(devList);
+        }else if(intOption == 2){
+            Login.login(customerList);
+        }
     }
-
 }

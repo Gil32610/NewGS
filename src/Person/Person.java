@@ -2,17 +2,18 @@ package Person;
 
 public abstract class Person {
     private String cpf;
-    private String fullname;
+    private String fullName;
     private String nationality;
-
-    public Person(String cpf, String fullname, String nationality) {
+    private Integer age;
+    public Person(String cpf, String fullname, String nationality,Integer age) {
         this.cpf = cpf;
-        this.fullname = fullname;
+        this.fullName = fullname;
         this.nationality = nationality;
+        this.age = age;
     }
 
     public Person(String fullname, String nationality){
-        this.fullname = fullname;
+        this.fullName = fullname;
         this.nationality = nationality;
     }
 
@@ -25,11 +26,11 @@ public abstract class Person {
     }
 
     public String getFullname() {
-        return fullname;
+        return fullName;
     }
 
     public void setFullname(String fullname) {
-        this.fullname = fullname;
+        this.fullName = fullname;
     }
 
     public String getNationality() {
@@ -40,6 +41,9 @@ public abstract class Person {
         this.nationality = nationality;
     }
 
+    public void setAge(Integer age){this.age = age;}
+
+    public Integer getAge(){return this.age;}
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Person) {

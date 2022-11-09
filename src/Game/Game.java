@@ -2,13 +2,13 @@ package Game;
 
 public class Game {
     private String title;
-    private AgeRating rating;
+    private ageRating rating;
     private String genre;
     private Integer releaseDate;
     private double price;
     private int sold;
 
-    public Game(String title, AgeRating rating, String genre, Integer releaseDate, double price) {
+    public Game(String title, ageRating rating, String genre, Integer releaseDate, double price) {
         this.price = price;
         this.title = title;
         this.rating = rating;
@@ -25,11 +25,11 @@ public class Game {
         this.title = title;
     }
 
-    public AgeRating getRating() {
+    public ageRating getRating() {
         return this.rating;
     }
 
-    public void setRating(AgeRating rating) {
+    public void setRating(ageRating rating) {
         this.rating = rating;
     }
 

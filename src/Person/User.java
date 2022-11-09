@@ -7,20 +7,21 @@ import Game.*;
 public class User extends Person {
     private String email;
     private String username;
-    private Integer age;
+    private String password;
     private Double wallet;
     private SinglyLinkedList<Game> gameList;
 
-    public User(String cpf, String fullname, String nationality, String email, String username, Integer age) {
-        super(cpf, fullname, nationality);
+    public User(String cpf, String fullName, String nationality, String email, String username,
+                Integer age,String password) {
+        super(cpf, fullName, nationality,age);
         this.email = email;
         this.username = username;
-        this.age = age;
         this.gameList = new SinglyLinkedList<>();
         this.wallet = 0.0;
-
+        this.password = password;
     }
-
+    public String getUsername(){return this.username;}
+    public String getPassword(){return this.password;}
     public void addGame(Game g) {
         this.gameList.addLast(g);
     }
