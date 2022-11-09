@@ -1,4 +1,5 @@
 package Store;
+
 import Functions.*;
 import Person.Developer;
 import Person.User;
@@ -24,11 +25,14 @@ public class GameSotp {
                 System.out.println("Prosseguindo registro como cliente!");
                 customerList.addFirst(Functions.registerConsole(false));
                 break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
         }
         intOption = Login.loginChoice();
-        if(intOption == 1){
+        if (intOption == 1) {
             Login.login(devList);
-        }else if(intOption == 2){
+        } else if (intOption == 2) {
             Login.login(customerList);
         }
     }

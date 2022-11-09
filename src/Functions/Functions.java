@@ -11,7 +11,7 @@ import Studio.Publisher;
 import java.util.Scanner;
 
 public class Functions {
-    public static <T> T registerConsole(boolean flag){
+    public static <T> T registerConsole(boolean flag) {
         Scanner s = new Scanner(System.in);
         String fullName, email, nationality, cpf, username, password;
         Integer age;
@@ -36,12 +36,13 @@ public class Functions {
             System.out.println("Idade inválida! Digite novamente:");
             age = Integer.parseInt(s.nextLine());
         }
-        if(flag){
-            return (T) (dev = new Developer(cpf, fullName, nationality, email, username, age , password));
-        }else{
-            return (T) (user = new User(cpf, fullName, nationality, email, username, age , password));
+        if (flag) {
+            return (T) (dev = new Developer(cpf, fullName, nationality, email, username, age, password));
+        } else {
+            return (T) (user = new User(cpf, fullName, nationality, email, username, age, password));
         }
     }
+
     public void sendGamePublisher(Publisher p) {
         Scanner s = new Scanner(System.in);
         String gameTitle, genre;
@@ -90,13 +91,13 @@ public class Functions {
 
     }
 
-    protected static SinglyListNode searchUser(String string, SinglyLinkedList list){
+    protected static SinglyListNode searchUser(String string, SinglyLinkedList list) {
         SinglyListNode<User> auxHead = list.getHead();
         String Value;
         Value = auxHead.getValue().getPassword();
 
-        while(auxHead != null){
-            if(string.equals(auxHead.getValue())){
+        while (auxHead != null) {
+            if (string.equals(auxHead.getValue())) {
                 return auxHead;
             }
             auxHead = auxHead.getNext();
@@ -104,4 +105,17 @@ public class Functions {
         System.out.println("Usuario nao foi encontrado");
         return null;
     }
+
+    public void showCatalog(Publisher p) {
+
+        if (p.getReleasedGames().isEmpty()) {
+            System.out.println("No games released yet!");
+        } else {
+            SinglyListNode<Game> current = p.getReleasedGames().getHead();
+            while (current != null) {
+                System.out.println(current.getValue());
+            }
+        }
+    }
+
 }
