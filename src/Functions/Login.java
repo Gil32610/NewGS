@@ -2,6 +2,7 @@ package Functions;
 
 import LinkedList.SinglyLinkedList;
 import LinkedList.SinglyListNode;
+import Person.User;
 
 import java.util.Scanner;
 
@@ -29,6 +30,7 @@ public class Login {
     public static void login(SinglyLinkedList list){
         Scanner s = new Scanner(System.in);
         String user,password;
+        boolean passwordCheckFlag;
         SinglyListNode userNode;
         System.out.println("Qual o seu usuario?");
         user = s.nextLine();
@@ -37,15 +39,36 @@ public class Login {
             System.out.println("Tente Novamente");
             login(list);
         }else{
-            //passwordCheck(userNode);
+            System.out.println("Qual a sua Senha?");
+            password = s.nextLine();
+            passwordCheckFlag = passwordCheck(userNode,password);
+            if(passwordCheckFlag){
+                System.out.println("Senha Correta");
+                // Menu especifico login
+            }else{
+                // Retornar pro menu inicial
+            }
         }
     }
- /*   public static boolean passwordCheck(SinglyListNode node){
-
-        if(node.getValue().ge == null){
-            System.out.println("Senha errada ou não encontra no nosso sistema\nTente Novamente!");
-
+    public static boolean passwordCheck(SinglyListNode<User> node,String password){
+        Scanner s = new Scanner(System.in);
+        int tryCount = 3;
+        while(tryCount != 0){
+            if(password.equals(node.getValue().getPassword())){
+                return true;
+            }else{
+                System.out.println("Senha incorreta,\nTente Novamente!");
+                if (tryCount == 1){
+                    System.out.println("Você só tem mais " + (tryCount) + " tentativa");
+                }else{
+                    System.out.println("Você só tem mais " + (tryCount) + " tentativas");
+                }
+                tryCount--;
+                password = s.nextLine();
+            }
         }
-    }*/
+        System.out.println("Numero de tentativas maxima Atingida");
+        return false;
+    }
 }
 
