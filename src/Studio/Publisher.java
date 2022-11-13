@@ -5,9 +5,12 @@ import Game.*;
 
 public class Publisher {
 
+    private String companyName;
+
     private SinglyLinkedList<Game> releasedGames;
 
-    public Publisher() {
+    public Publisher(String companyName) {
+        this.companyName = companyName;
         this.releasedGames = new SinglyLinkedList<>();
     }
 
@@ -31,6 +34,19 @@ public class Publisher {
 
     public void publishGame(Game g) {
         this.releasedGames.addLast(g);
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    @Override
+    public String toString() {
+        return "Publisher [companyName=" + companyName + "]";
     }
 
 }

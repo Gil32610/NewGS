@@ -56,16 +56,17 @@ public class Functions {
         genre = s.nextLine();
         age();
         ageRating = rating(Integer.parseInt(s.nextLine()));
-        System.out.println("Informe ");
+        System.out.println("Informe o ano de lançamento: ");
         releaseDate = Integer.parseInt(s.nextLine());
-        System.out.println("Informe ");
+        System.out.println("Informe o preço");
         price = Double.parseDouble(s.nextLine());
         g = new Game(gameTitle, ageRating, genre, releaseDate, price);
         p.addGame(g);
     }
 
+    // acessa vetor de enum com indice
     private ageRating rating(int i) {
-                return ageRating.values()[i];
+        return ageRating.values()[i];
     }
 
     private void age() {
@@ -74,7 +75,8 @@ public class Functions {
                 + "5 - Não recomendado para menores de 16 anos\n" + "6 - Não recomendado para menores de 18 anos");
 
     }
-//método de busca já implementado na classe linkedlist
+
+    // método de busca já implementado na classe linkedlist
     protected static SinglyListNode<User> searchUser(String string, SinglyLinkedList list) {
         SinglyListNode<User> auxHead = list.getHead();
         String value;
