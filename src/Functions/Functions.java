@@ -77,16 +77,16 @@ public class Functions {
 
     protected static SinglyListNode searchUser(String string, SinglyLinkedList list) {
         SinglyListNode<User> auxHead = list.getHead();
-        String Value;
-        Value = auxHead.getValue().getPassword();
+        String value;
+        value = auxHead.getValue().getUsername();
 
         while (auxHead != null) {
-            if (string.equals(auxHead.getValue())) {
+            if (string.equals(value)) {
                 return auxHead;
             }
             auxHead = auxHead.getNext();
         }
-        System.out.println("Usuario nao foi encontrado");
+        System.out.println("Usuario não foi encontrado");
         return null;
     }
 
