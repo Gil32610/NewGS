@@ -74,8 +74,8 @@ public class Functions {
                 + "5 - Não recomendado para menores de 16 anos\n" + "6 - Não recomendado para menores de 18 anos");
 
     }
-
-    protected static SinglyListNode searchUser(String string, SinglyLinkedList list) {
+//método de busca já implementado na classe linkedlist
+    protected static SinglyListNode<User> searchUser(String string, SinglyLinkedList list) {
         SinglyListNode<User> auxHead = list.getHead();
         String value;
         value = auxHead.getValue().getUsername();

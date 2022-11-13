@@ -1,6 +1,6 @@
 package LinkedList;
 
-public class  SinglyLinkedList<T> {
+public class SinglyLinkedList<T> {
     private SinglyListNode<T> head;
 
     public boolean isEmpty() {
@@ -30,7 +30,7 @@ public class  SinglyLinkedList<T> {
         } else {
             search = this.head;
             while (search != null) {
-                if (search.equals(value)) {
+                if (search.getValue().equals(value)) {
                     return search;
                 }
                 search = search.getNext();

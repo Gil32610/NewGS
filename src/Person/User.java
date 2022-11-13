@@ -1,6 +1,9 @@
 package Person;
 
 import LinkedList.*;
+
+import java.rmi.server.UID;
+
 import Exception.InsufficientFundsException;
 import Game.*;
 
@@ -12,16 +15,23 @@ public class User extends Person {
     private SinglyLinkedList<Game> gameList;
 
     public User(String cpf, String fullName, String nationality, String email, String username,
-                Integer age,String password) {
-        super(cpf, fullName, nationality,age);
+            Integer age, String password) {
+        super(cpf, fullName, nationality, age);
         this.email = email;
         this.username = username;
         this.gameList = new SinglyLinkedList<>();
         this.wallet = 0.0;
         this.password = password;
     }
-    public String getUsername(){return this.username;}
-    public String getPassword(){return this.password;}
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
     public void addGame(Game g) {
         this.gameList.addLast(g);
     }
@@ -33,8 +43,18 @@ public class User extends Person {
     public void buyContent(Double value) throws InsufficientFundsException {
         if (!(wallet - value < 0)) {
             this.wallet -= value;
-        }else{
+        } else {
             throw new InsufficientFundsException();
+        }
+    }
+
+    @Override
+    public boolean equals(Object u) {
+        if (u instanceof User) {
+            User aUser = (User) u;
+            return this.username.equals(aUser.username);
+        } else {
+            return false;
         }
     }
 

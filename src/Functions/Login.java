@@ -34,7 +34,7 @@ public class Login {
         SinglyListNode userNode;
         System.out.println("Qual o seu usuario?");
         user = s.nextLine();
-        userNode = Functions.searchUser(user,list);
+        userNode = list.search(user);
         if(userNode == null){
             System.out.println("Tente Novamente");
             login(list);
