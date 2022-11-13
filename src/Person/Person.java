@@ -5,6 +5,11 @@ public abstract class Person {
     private String fullName;
     private String nationality;
     private Integer age;
+
+
+    public Person(String fullname){
+        this.fullName = fullname;
+    }
     public Person(String cpf, String fullname, String nationality,Integer age) {
         this.cpf = cpf;
         this.fullName = fullname;

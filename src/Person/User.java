@@ -14,6 +14,11 @@ public class User extends Person {
     private Double wallet;
     private SinglyLinkedList<Game> gameList;
 
+    public User(String email, String fullName) {
+        super(fullName);
+        this.email = email;
+    }
+
     public User(String cpf, String fullName, String nationality, String email, String username,
             Integer age, String password) {
         super(cpf, fullName, nationality, age);
@@ -52,7 +57,7 @@ public class User extends Person {
     public boolean equals(Object u) {
         if (u instanceof User) {
             User aUser = (User) u;
-            return this.username.equals(aUser.username);
+            return this.email.equals(aUser.email);
         } else {
             return false;
         }

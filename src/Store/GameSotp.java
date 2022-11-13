@@ -6,11 +6,12 @@ import Person.User;
 import LinkedList.SinglyLinkedList;
 import java.util.Scanner;
 import static java.lang.Character.toLowerCase;
+import java.util.ArrayList;
 
 public class GameSotp {
     public static void main(String[] args) {
-        SinglyLinkedList<User> customerList = new SinglyLinkedList<>();
-        SinglyLinkedList<Developer> devList = new SinglyLinkedList<>();
+        ArrayList<User> customerList = new ArrayList<>();
+        ArrayList<User> devList = new ArrayList<>();
         Scanner s = new Scanner(System.in);
         int intOption;
         char option;
@@ -19,11 +20,11 @@ public class GameSotp {
         switch (option) {
             case 's':
                 System.out.println("Prosseguindo registro como developer!");
-                devList.addFirst(Functions.registerConsole(true));
+                devList.add(Functions.registerConsole(true));
                 break;
             case 'n':
                 System.out.println("Prosseguindo registro como cliente!");
-                customerList.addFirst(Functions.registerConsole(false));
+                customerList.add(Functions.registerConsole(false));
                 break;
             default:
                 System.out.println("Opção inválida!");
@@ -35,5 +36,6 @@ public class GameSotp {
         } else if (intOption == 2) {
             Login.login(customerList);
         }
+        System.out.println("Acabou esta porra");
     }
 }

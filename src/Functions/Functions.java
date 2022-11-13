@@ -7,11 +7,12 @@ import LinkedList.SinglyListNode;
 import Person.Developer;
 import Person.User;
 import Studio.Publisher;
+import java.util.ArrayList;
 
 import java.util.Scanner;
 
 public class Functions {
-    public static <T> T registerConsole(boolean flag) {
+    public static User registerConsole(boolean flag) {
         Scanner s = new Scanner(System.in);
         String fullName, email, nationality, cpf, username, password;
         Integer age;
@@ -37,9 +38,9 @@ public class Functions {
             age = Integer.parseInt(s.nextLine());
         }
         if (flag) {
-            return (T) (dev = new Developer(cpf, fullName, nationality, email, username, age, password));
+            return dev = new Developer(cpf, fullName, nationality, email, username, age, password);
         } else {
-            return (T) (user = new User(cpf, fullName, nationality, email, username, age, password));
+            return user = new User(cpf, fullName, nationality, email, username, age, password);
         }
     }
 
@@ -77,13 +78,12 @@ public class Functions {
     }
 
     // método de busca já implementado na classe linkedlist
-    protected static SinglyListNode<User> searchUser(String string, SinglyLinkedList list) {
-        SinglyListNode<User> auxHead = list.getHead();
-        String value;
-        value = auxHead.getValue().getUsername();
+    // Reaproveitando método de busca
+    protected static <T> SinglyListNode<T> searchUser(T content, SinglyLinkedList<T> list) {
+        SinglyListNode<T> auxHead = list.getHead();
 
         while (auxHead != null) {
-            if (string.equals(value)) {
+            if (content.equals(auxHead.getValue())) {
                 return auxHead;
             }
             auxHead = auxHead.getNext();
