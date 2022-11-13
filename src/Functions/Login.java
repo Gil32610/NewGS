@@ -63,19 +63,19 @@ public class Login {
         String password;
         System.out.println("Informe o email:");
         email = s.nextLine();
-
         User aUser = new User(email, null);
 
-        if (list.contains(aUser)) {
-            aUser = list.get(list.indexOf(aUser));
-        } else {
-            System.out.println("Tente novamente!");
-            login(list);
+        while (!list.contains(aUser)) {
+            System.out.println("Usuário não encontrado. Tente novamente!");
+            System.out.println("Informe o email:");
+            email = s.nextLine();
+            aUser = new User(email, null);
         }
+        aUser = list.get(list.indexOf(aUser));
         System.out.println("Informe a senha:");
         password = s.nextLine();
         if (passwordCheck(aUser, password)) {
-            //
+
         } else {
             System.out.println("Tente novamente mais tarde!");
         }
