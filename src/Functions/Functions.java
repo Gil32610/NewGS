@@ -65,23 +65,7 @@ public class Functions {
     }
 
     private ageRating rating(int i) {
-
-        switch (i) {
-            case 1:
-                return ageRating.L;
-            case 2:
-                return ageRating.M10;
-            case 3:
-                return ageRating.M12;
-            case 4:
-                return ageRating.M14;
-            case 5:
-                return ageRating.M16;
-            case 6:
-                return ageRating.M18;
-            default:
-                return null;
-        }
+                return ageRating.values()[i];
     }
 
     private void age() {
