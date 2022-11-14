@@ -35,6 +35,7 @@ public class GameSotp {
                 }
                     break;
                 case 4:
+                Functions.showCatalog(standard);
                     break;
                 case 0:
                     break;

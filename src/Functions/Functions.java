@@ -108,8 +108,20 @@ public class Functions {
         }
     }
 
+    private static void devOptions() {
+        System.out.println("1 - Desenvolver jogo");
+        System.out.println("2- Enviar para publisher padrão");
+        System.out.println("0 - ENCERRAR");
+    }
+
     public static void developerFunctions(User u) {
-        
+        Scanner s = new Scanner(System.in);
+        int op;
+        do {
+            devOptions();
+            op = Integer.parseInt(s.nextLine());
+            
+        } while (op != 0);
     }
 
     public static void userFunctions(User u) {
