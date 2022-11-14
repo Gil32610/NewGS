@@ -3,6 +3,7 @@ package Store;
 import Functions.*;
 import Person.Developer;
 import Person.User;
+import Studio.Publisher;
 import LinkedList.SinglyLinkedList;
 import java.util.Scanner;
 import static java.lang.Character.toLowerCase;
@@ -12,24 +13,36 @@ public class GameSotp {
     public static void main(String[] args) {
         ArrayList<User> customerList = new ArrayList<>();
         ArrayList<User> devList = new ArrayList<>();
+        Publisher standard = new Publisher("SPM");
         Scanner s = new Scanner(System.in);
         int intOption;
-        char option;
-        System.out.println("Deseja fazer um registro como Developer?(S/N)");
-        option = toLowerCase(s.next().charAt(0));
-        switch (option) {
-            case 's':
-                System.out.println("Prosseguindo registro como developer!");
-                devList.add(Functions.registerConsole(true));
-                break;
-            case 'n':
-                System.out.println("Prosseguindo registro como cliente!");
-                customerList.add(Functions.registerConsole(false));
-                break;
-            default:
-                System.out.println("Opção inválida!");
-                break;
-        }
+        do {
+            options();
+            intOption = Integer.parseInt(s.nextLine());
+            switch (intOption) {
+                case 1:
+                Register(customerList, false);
+                    break;
+                case 2:
+                Register(devList, true);
+                    break;
+                case 3:
+                intOption = Login.loginChoice();
+                if (intOption == 1) {
+                    Login.login(devList);
+                } else if (intOption == 2) {
+                    Login.login(customerList);
+                }
+                    break;
+                case 4:
+                    break;
+                case 0:
+                    break;
+                default:
+                    break;
+            }
+        } while (intOption != 0);
+
         intOption = Login.loginChoice();
         if (intOption == 1) {
             Login.login(devList);
@@ -38,4 +51,21 @@ public class GameSotp {
         }
         System.out.println("Acabou esta porra");
     }
+
+    public static void Register(ArrayList<User> list, boolean flag) {
+        list.add(Functions.registerConsole(flag));
+    }
+
+    public static void options() {
+        System.out.println("1 - Registrar como cliente");
+        System.out.println("2 - Registrar como desenvolvedor");
+        System.out.println("3 - Login");
+        System.out.println("4 - Ver catálogo");
+        System.out.println("0 - Encerrar");
+    }
+
+    public static void content(Publisher p){
+        Functions.showCatalog(p);
+    }
+
 }

@@ -44,7 +44,7 @@ public class Functions {
         }
     }
 
-    public void sendGamePublisher(Publisher p) {
+    public static void developGame(ArrayList<Game> list) {
         Scanner s = new Scanner(System.in);
         String gameTitle, genre;
         ageRating ageRating;
@@ -62,15 +62,19 @@ public class Functions {
         System.out.println("Informe o preço");
         price = Double.parseDouble(s.nextLine());
         g = new Game(gameTitle, ageRating, genre, releaseDate, price);
+        list.add(g);
+    }
+
+    public void sendGamePublisher(Publisher p, Game g) {
         p.addGame(g);
     }
 
     // acessa vetor de enum com indice
-    private ageRating rating(int i) {
+    private static ageRating rating(int i) {
         return ageRating.values()[i];
     }
 
-    private void age() {
+    private static void age() {
         System.out.println("1- classificação livre\n" + "2- Não recomendado para menores de 10 anos\n"
                 + "3 - Não recomendado para menores de 12 anos\n" + "4 - Não recomendado para menores de 14 anos\n"
                 + "5 - Não recomendado para menores de 16 anos\n" + "6 - Não recomendado para menores de 18 anos");
@@ -92,7 +96,7 @@ public class Functions {
         return null;
     }
 
-    public void showCatalog(Publisher p) {
+    public static void showCatalog(Publisher p) {
 
         if (p.getReleasedGames().isEmpty()) {
             System.out.println("No games released yet!");
@@ -102,6 +106,14 @@ public class Functions {
                 System.out.println(current.getValue());
             }
         }
+    }
+
+    public static void developerFunctions(Developer dev) {
+
+    }
+
+    public static void userFunctions(User u) {
+
     }
 
 }
