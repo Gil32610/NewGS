@@ -108,8 +108,8 @@ public class Functions {
         }
     }
 
-    public static void developerFunctions(Developer dev) {
-
+    public static void developerFunctions(User u) {
+        
     }
 
     public static void userFunctions(User u) {
