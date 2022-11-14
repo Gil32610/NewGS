@@ -75,7 +75,11 @@ public class Login {
         System.out.println("Informe a senha:");
         password = s.nextLine();
         if (passwordCheck(aUser, password)) {
-
+            if (aUser instanceof Developer) {
+                Functions.developerFunctions(aUser);
+            } else {
+                Functions.userFunctions(aUser);
+            }
         } else {
             System.out.println("Tente novamente mais tarde!");
         }
