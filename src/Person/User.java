@@ -38,19 +38,13 @@ public class User extends Person {
         return this.password;
     }
 
-    public void addGame(Game g) {
-        this.gameList.addLast(g);
-    }
-
     public double getWallet() {
         return this.wallet;
     }
-    
 
     public void setWallet(double value) {
         this.wallet += value;
     }
-    
 
     public ArrayList<Game> getGameList() {
         return this.gameList;
