@@ -10,63 +10,38 @@ import static java.lang.Character.toLowerCase;
 import java.util.ArrayList;
 
 public class GameSotp {
-    public static void main(String[] args) {
-        ArrayList<User> customerList = new ArrayList<>();
-        ArrayList<User> devList = new ArrayList<>();
-        Publisher standard = new Publisher("SPM");
-        Scanner s = new Scanner(System.in);
-        int intOption;
-        do {
-            options();
-            intOption = Integer.parseInt(s.nextLine());
-            switch (intOption) {
-                case 1:
-                Register(customerList, false);
-                    break;
-                case 2:
-                Register(devList, true);
-                    break;
-                case 3:
-                intOption = Login.loginChoice();
-                if (intOption == 1) {
-                    Login.login(devList);
-                } else if (intOption == 2) {
-                    Login.login(customerList);
-                }
-                    break;
-                case 4:
-                Functions.showCatalog(standard);
-                    break;
-                case 0:
-                    break;
-                default:
-                    break;
-            }
-        } while (intOption != 0);
+    private ArrayList<User> userList;
+    private ArrayList<User> devList;
+    private Publisher standard;
 
-        intOption = Login.loginChoice();
-        if (intOption == 1) {
-            Login.login(devList);
-        } else if (intOption == 2) {
-            Login.login(customerList);
-        }
-        System.out.println("Acabou esta porra");
+    public GameSotp() {
+        this.userList = new ArrayList<>();
+        this.devList = new ArrayList<>();
+        this.standard = new Publisher("SPM");
     }
 
-    public static void Register(ArrayList<User> list, boolean flag) {
-        list.add(Functions.registerConsole(flag));
+    public ArrayList<User> getUserList() {
+        return userList;
     }
 
-    public static void options() {
-        System.out.println("1 - Registrar como cliente");
-        System.out.println("2 - Registrar como desenvolvedor");
-        System.out.println("3 - Login");
-        System.out.println("4 - Ver catálogo");
-        System.out.println("0 - Encerrar");
+    public void setUserList(ArrayList<User> userList) {
+        this.userList = userList;
     }
 
-    public static void content(Publisher p){
-        Functions.showCatalog(p);
+    public ArrayList<User> getDevList() {
+        return devList;
+    }
+
+    public void setDevList(ArrayList<User> devList) {
+        this.devList = devList;
+    }
+
+    public Publisher getStandard() {
+        return standard;
+    }
+
+    public void setStandard(Publisher standard) {
+        this.standard = standard;
     }
 
 }
