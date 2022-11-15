@@ -114,6 +114,13 @@ public class Functions {
         System.out.println("0 - ENCERRAR");
     }
 
+    private static void clientOptions(){
+        System.out.println("1- Comprar jogo");
+        System.out.println("2 - Adicionar fundos à sua carteira");
+        System.out.println("3 - Ver catálogo");
+        System.out.println("0 - Sair");
+    }
+
     public static void developerFunctions(User u) {
         Scanner s = new Scanner(System.in);
         int op;
