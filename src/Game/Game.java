@@ -17,6 +17,10 @@ public class Game {
         this.sold = 0;
     }
 
+    public Game(String title) {
+        this.title = title;
+    }
+
     public String getTitle() {
         return this.title;
     }
