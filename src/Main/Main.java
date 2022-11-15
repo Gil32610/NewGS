@@ -13,6 +13,8 @@ public class Main {
     public static void main(String[] args) {
         GameSotp newGs = new GameSotp();
         Scanner s = new Scanner(System.in);
+        User aUser;
+        User aDev;
         int intOption;
         do {
             options();
@@ -27,9 +29,20 @@ public class Main {
                 case 3:
                     intOption = Login.loginChoice();
                     if (intOption == 1) {
-                        Login.login(newGs.getDevList());
+                        aUser = Login.login(newGs.getDevList());
+                        if (aUser == null) {
+                            System.out.println("Usuário não existe ou senha incorreta!");
+                        } else {
+                            Functions.developerFunctions(aUser, newGs.getStandard());
+                        }
+
                     } else if (intOption == 2) {
-                        Login.login(newGs.getUserList());
+                        aDev = Login.login(newGs.getUserList());
+                        if (aDev == null) {
+                            System.out.println("Usuário não existe ou senha incorret!");
+                        } else {
+                            Functions.userFunctions(aDev, newGs.getStandard());
+                        }
                     }
                     break;
                 case 4:

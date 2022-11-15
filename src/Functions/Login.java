@@ -57,31 +57,28 @@ public class Login {
     // }
     // }
 
-    public static void login(ArrayList<User> list) {
-        Scanner s = new Scanner(System.in);
-        String email;
-        String password;
-        System.out.println("Informe o email:");
-        email = s.nextLine();
-        User aUser = new User(email, null);
+    public static User login(ArrayList<User> list) {
 
-        while (!list.contains(aUser)) {
-            System.out.println("Usuário não encontrado. Tente novamente!");
+        if (list.isEmpty()) {
+            return null;
+        } else {
+            Scanner s = new Scanner(System.in);
+            String email;
+            String password;
             System.out.println("Informe o email:");
             email = s.nextLine();
-            aUser = new User(email, null);
-        }
-        aUser = list.get(list.indexOf(aUser));
-        System.out.println("Informe a senha:");
-        password = s.nextLine();
-        if (passwordCheck(aUser, password)) {
-            if (aUser instanceof Developer) {
-                Functions.developerFunctions(aUser);
-            } else {
-                Functions.userFunctions(aUser);
+            User aUser = new User(email, null);
+
+            if (!list.contains(aUser)) {
+                return null;
             }
-        } else {
-            System.out.println("Tente novamente mais tarde!");
+            aUser = list.get(list.indexOf(aUser));
+            System.out.println("Informe a senha:");
+            password = s.nextLine();
+            if (passwordCheck(aUser, password)) {
+                return aUser;
+            }
+            return null;
         }
     }
 

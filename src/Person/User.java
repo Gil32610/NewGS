@@ -41,7 +41,11 @@ public class User extends Person {
         this.gameList.addLast(g);
     }
 
-    public void addFunds(Double value) {
+    public double getWallet() {
+        return this.wallet;
+    }
+
+    public void setWallet(double value) {
         this.wallet += value;
     }
 

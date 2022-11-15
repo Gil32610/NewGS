@@ -83,18 +83,20 @@ public class Functions {
 
     // método de busca já implementado na classe linkedlist
     // Reaproveitando método de busca
-    protected static <T> SinglyListNode<T> searchUser(T content, SinglyLinkedList<T> list) {
-        SinglyListNode<T> auxHead = list.getHead();
+    // Estamos utilizando ArrayList<>
+    // protected static <T> SinglyListNode<T> searchUser(T content,
+    // SinglyLinkedList<T> list) {
+    // SinglyListNode<T> auxHead = list.getHead();
 
-        while (auxHead != null) {
-            if (content.equals(auxHead.getValue())) {
-                return auxHead;
-            }
-            auxHead = auxHead.getNext();
-        }
-        System.out.println("Usuario não foi encontrado");
-        return null;
-    }
+    // while (auxHead != null) {
+    // if (content.equals(auxHead.getValue())) {
+    // return auxHead;
+    // }
+    // auxHead = auxHead.getNext();
+    // }
+    // System.out.println("Usuario não foi encontrado");
+    // return null;
+    // }
 
     public static void showCatalog(Publisher p) {
 
@@ -111,28 +113,32 @@ public class Functions {
     private static void devOptions() {
         System.out.println("1 - Desenvolver jogo");
         System.out.println("2- Enviar para publisher padrão");
-        System.out.println("0 - ENCERRAR");
+        System.out.println("0 - Sair");
     }
 
-    private static void clientOptions(){
+    private static void clientOptions() {
         System.out.println("1- Comprar jogo");
         System.out.println("2 - Adicionar fundos à sua carteira");
         System.out.println("3 - Ver catálogo");
         System.out.println("0 - Sair");
     }
 
-    public static void developerFunctions(User u) {
+    public static void developerFunctions(User u, Publisher p) {
         Scanner s = new Scanner(System.in);
         int op;
         do {
             devOptions();
             op = Integer.parseInt(s.nextLine());
-            
+
         } while (op != 0);
     }
 
-    public static void userFunctions(User u) {
+    public static void userFunctions(User u, Publisher p) {
 
+    }
+
+    public static void addFunds(User u, double value) {
+        u.setWallet(value);
     }
 
 }
