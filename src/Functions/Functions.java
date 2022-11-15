@@ -44,7 +44,7 @@ public class Functions {
         }
     }
 
-    public static void developGame(ArrayList<Game> list) {
+    public static void developGame(User dev) {
         Scanner s = new Scanner(System.in);
         String gameTitle, genre;
         ageRating ageRating;
@@ -62,7 +62,7 @@ public class Functions {
         System.out.println("Informe o preço");
         price = Double.parseDouble(s.nextLine());
         g = new Game(gameTitle, ageRating, genre, releaseDate, price);
-        list.add(g);
+        dev.getGameList().add(g);
     }
 
     public void sendGamePublisher(Publisher p, Game g) {
@@ -125,11 +125,34 @@ public class Functions {
 
     public static void developerFunctions(User u, Publisher p) {
         Scanner s = new Scanner(System.in);
+        String title;
+        Game g;
+        boolean contains;
         int op;
         do {
             devOptions();
             op = Integer.parseInt(s.nextLine());
-
+            switch (op) {
+                case 1:
+                    developGame(u);
+                    break;
+                case 2:
+                    System.out.println("Informe o titulo do jogo:");
+                    title = s.nextLine();
+                    g = new Game(title);
+                    contains = u.getGameList().contains(g);
+                    if (!contains) {
+                        System.out.println("Jogo não encontrado ou título errado!");
+                    } else {
+                        g = u.getGameList().get(u.getGameList().indexOf(g));
+                        
+                    }
+                    break;
+                case 0:
+                    break;
+                default:
+                    break;
+            }
         } while (op != 0);
     }
 

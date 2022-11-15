@@ -3,6 +3,7 @@ package Person;
 import LinkedList.*;
 
 import java.rmi.server.UID;
+import java.util.ArrayList;
 
 import Exception.InsufficientFundsException;
 import Game.*;
@@ -12,7 +13,7 @@ public class User extends Person {
     private String username;
     private String password;
     private Double wallet;
-    private SinglyLinkedList<Game> gameList;
+    private ArrayList<Game> gameList;
 
     public User(String email, String fullName) {
         super(fullName);
@@ -24,7 +25,7 @@ public class User extends Person {
         super(cpf, fullName, nationality, age);
         this.email = email;
         this.username = username;
-        this.gameList = new SinglyLinkedList<>();
+        this.gameList = new ArrayList<>();
         this.wallet = 0.0;
         this.password = password;
     }
@@ -44,9 +45,15 @@ public class User extends Person {
     public double getWallet() {
         return this.wallet;
     }
+    
 
     public void setWallet(double value) {
         this.wallet += value;
+    }
+    
+
+    public ArrayList<Game> getGameList() {
+        return this.gameList;
     }
 
     public void buyContent(Double value) throws InsufficientFundsException {
