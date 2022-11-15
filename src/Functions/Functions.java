@@ -8,7 +8,7 @@ import Person.Developer;
 import Person.User;
 import Studio.Publisher;
 import java.util.ArrayList;
-
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Functions {
@@ -56,7 +56,15 @@ public class Functions {
         System.out.println("Informe o Genero do seu jogo");
         genre = s.nextLine();
         age();
-        ageRating = rating(Integer.parseInt(s.nextLine()));
+        try {
+            ageRating = rating(Integer.parseInt(s.nextLine()));
+        } catch (IndexOutOfBoundsException io) {
+            System.out.println("Classificação inválida, informe valores de 0 a 5:");
+            ageRating = rating(Integer.parseInt(s.nextLine()));
+        } catch (InputMismatchException im) {
+            System.out.println("Entrada inválida. Digite um número de 0 a 5");
+            ageRating = rating(Integer.parseInt(s.nextLine()));
+        }
         System.out.println("Informe o ano de lançamento: ");
         releaseDate = Integer.parseInt(s.nextLine());
         System.out.println("Informe o preço");
@@ -70,14 +78,14 @@ public class Functions {
     }
 
     // acessa vetor de enum com indice
-    private static ageRating rating(int i) {
+    private static ageRating rating(int i) throws ArrayIndexOutOfBoundsException {
         return ageRating.values()[i];
     }
 
     private static void age() {
-        System.out.println("1- classificação livre\n" + "2- Não recomendado para menores de 10 anos\n"
-                + "3 - Não recomendado para menores de 12 anos\n" + "4 - Não recomendado para menores de 14 anos\n"
-                + "5 - Não recomendado para menores de 16 anos\n" + "6 - Não recomendado para menores de 18 anos");
+        System.out.println("0- classificação livre\n" + "1- Não recomendado para menores de 10 anos\n"
+                + "2 - Não recomendado para menores de 12 anos\n" + "3 - Não recomendado para menores de 14 anos\n"
+                + "4 - Não recomendado para menores de 16 anos\n" + "5 - Não recomendado para menores de 18 anos");
 
     }
 
