@@ -75,7 +75,7 @@ public class Game {
     public boolean equals(Object obj) {
         if (obj instanceof Game) {
             Game g = (Game) obj;
-            return g.getTitle().equals(g.getTitle());
+            return this.getTitle().equals(g.getTitle());
         }
         return false;
     }

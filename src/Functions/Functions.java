@@ -101,13 +101,14 @@ public class Functions {
     public static void showCatalog(Publisher p) {
 
         // if (p.getReleasedGames().isEmpty()) {
-        //     System.out.println("No games released yet!");
+        // System.out.println("No games released yet!");
         // } else {
-        //     SinglyListNode<Game> current = p.getReleasedGames().getHead();
-        //     while (current != null) {
-        //         System.out.println(current.getValue());
-        //     }
+        // SinglyListNode<Game> current = p.getReleasedGames().getHead();
+        // while (current != null) {
+        // System.out.println(current.getValue());
         // }
+        // }
+        System.out.println(p.getReleasedGames());
     }
 
     private static void devOptions() {
