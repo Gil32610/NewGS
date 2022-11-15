@@ -156,7 +156,42 @@ public class Functions {
     }
 
     public static void userFunctions(User u, Publisher p) {
+        Scanner s = new Scanner(System.in);
+        String title;
+        Game g;
+        boolean affordable;
+        int op;
+        do {
+            clientOptions();
+            op = Integer.parseInt(s.nextLine());
+            switch (op) {
+                case 1:
+                    System.out.println("Informe o título do jogo:");
+                    title = s.nextLine();
+                    g = checkGame(title, p.getReleasedGames());
+                    if (g == null) {
+                        System.out.println("Jogo não existe ou ainda não foi lançado!");
+                    } else {
+                        affordable = checkFunds(g, u.getWallet());
+                        if (affordable) {
+                            u.setWallet(-g.getPrice());
+                            u.getGameList().add(g);
+                        } else {
+                            System.out.println();
+                        }
+                    }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 0:
+                    break;
+                default:
+                    break;
+            }
 
+        } while (op != 0);
     }
 
     public static void addFunds(User u, double value) {
@@ -171,6 +206,14 @@ public class Functions {
             return null;
         }
 
+    }
+
+    public static boolean checkFunds(Game g, double wallet) {
+        if (g.getPrice() > wallet) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }
