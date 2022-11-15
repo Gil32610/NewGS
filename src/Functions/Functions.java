@@ -127,7 +127,6 @@ public class Functions {
         Scanner s = new Scanner(System.in);
         String title;
         Game g;
-        boolean contains;
         int op;
         do {
             devOptions();
@@ -139,18 +138,18 @@ public class Functions {
                 case 2:
                     System.out.println("Informe o titulo do jogo:");
                     title = s.nextLine();
-                    g = new Game(title);
-                    contains = u.getGameList().contains(g);
-                    if (!contains) {
+                    g = checkGame(title, u.getGameList());
+                    if (g == null) {
                         System.out.println("Jogo não encontrado ou título errado!");
                     } else {
-                        g = u.getGameList().get(u.getGameList().indexOf(g));
-                        
+                        p.getReleasedGames().add(g);
                     }
                     break;
                 case 0:
+                    System.out.println("Até mais!");
                     break;
                 default:
+                    System.out.println("Opção inválida!");
                     break;
             }
         } while (op != 0);
@@ -162,6 +161,16 @@ public class Functions {
 
     public static void addFunds(User u, double value) {
         u.setWallet(value);
+    }
+
+    public static Game checkGame(String title, ArrayList<Game> list) {
+        Game g = new Game(title);
+        if (list.contains(g)) {
+            return list.get(list.indexOf(g));
+        } else {
+            return null;
+        }
+
     }
 
 }
