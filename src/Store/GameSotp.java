@@ -4,7 +4,6 @@ import Functions.*;
 import Person.Developer;
 import Person.User;
 import Studio.Publisher;
-import LinkedList.SinglyLinkedList;
 import java.util.Scanner;
 import static java.lang.Character.toLowerCase;
 import java.util.ArrayList;
