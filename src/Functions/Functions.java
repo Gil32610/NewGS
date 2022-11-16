@@ -131,6 +131,7 @@ public class Functions {
     private static void devOptions() {
         System.out.println("1 - Desenvolver jogo");
         System.out.println("2- Enviar para publisher padrão");
+        System.out.println("3 - Ver meus jogos");
         System.out.println("0 - Sair");
     }
 
@@ -138,6 +139,7 @@ public class Functions {
         System.out.println("1- Comprar jogo");
         System.out.println("2 - Adicionar fundos à sua carteira");
         System.out.println("3 - Ver catálogo");
+        System.out.println("4- Ver meus jogos");
         System.out.println("0 - Sair");
     }
 
@@ -221,10 +223,13 @@ public class Functions {
                     addFunds(u, value);
                     break;
                 case 3:
+                    showCatalog(p);
                     break;
                 case 0:
+                    System.out.println("Até mais!");
                     break;
                 default:
+                    System.out.println("Opção não disponível!");
                     break;
             }
 
@@ -273,6 +278,14 @@ public class Functions {
         }
         return false;
 
+    }
+
+    public static void showMyList(User u) {
+        ArrayList<Game> game = u.getGameList();
+        int size = game.size();
+        for (int i = 0; i < size; i++) {
+            System.out.println(game.get(i));
+        }
     }
 
 }
