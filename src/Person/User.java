@@ -1,7 +1,5 @@
 package Person;
 
-import LinkedList.*;
-
 import java.rmi.server.UID;
 import java.util.ArrayList;
 

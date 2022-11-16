@@ -1,6 +1,5 @@
 package Functions;
 
-import LinkedList.*;
 import Person.User;
 import Person.Developer;
 import java.util.ArrayList;
@@ -27,35 +26,6 @@ public class Login {
         }
         return -1;
     }
-
-    // public static<T> void login(ArrayList<T> list) {
-    // Scanner s = new Scanner(System.in);
-    //
-    //
-    //
-    // boolean passwordCheckFlag;
-    // System.out.println("Qual o seu usuario?");
-    // user = s.nextLine();
-    // if(list.get(0)instanceof User){
-
-    // }
-    // else if(list.get(0) instanceof Developer)
-    // userNode = list.search(user);
-    // if (userNode == null) {
-    // System.out.println("Tente Novamente");
-    // login(list);
-    // } else {
-    // System.out.println("Qual a sua Senha?");
-    // password = s.nextLine();
-    // passwordCheckFlag = passwordCheck(userNode, password);
-    // if (passwordCheckFlag) {
-    // System.out.println("Senha Correta");
-    // // Menu especifico login
-    // } else {
-    // // Retornar pro menu inicial
-    // }
-    // }
-    // }
 
     public static User login(ArrayList<User> list) {
 
