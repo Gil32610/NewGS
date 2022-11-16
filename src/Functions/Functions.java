@@ -2,8 +2,6 @@ package Functions;
 
 import Game.Game;
 import Game.ageRating;
-import LinkedList.SinglyLinkedList;
-import LinkedList.SinglyListNode;
 import Person.Developer;
 import Person.User;
 import Studio.Publisher;
@@ -136,10 +134,11 @@ public class Functions {
     }
 
     private static void clientOptions() {
-        System.out.println("1- Comprar jogo");
+        System.out.println("1 - Comprar jogo");
         System.out.println("2 - Adicionar fundos à sua carteira");
         System.out.println("3 - Ver catálogo");
-        System.out.println("4- Ver meus jogos");
+        System.out.println("4 - Ver meus jogos");
+        System.out.println("5 - Minha carteira");
         System.out.println("0 - Sair");
     }
 
@@ -164,6 +163,9 @@ public class Functions {
                     } else {
                         sendGamePublisher(p, g);
                     }
+                    break;
+                case 3:
+                    showMyList(u);
                     break;
                 case 0:
                     System.out.println("Até mais!");
@@ -212,6 +214,7 @@ public class Functions {
                             break;
                         }
                         u.setWallet(-g.getPrice());
+                        p.setBalance(g.getPrice());
                         u.getGameList().add(g);
                         System.out.println("Jogo comprado!");
                     }
@@ -224,6 +227,13 @@ public class Functions {
                     break;
                 case 3:
                     showCatalog(p);
+                    break;
+
+                case 4:
+                    showMyList(u);
+                    break;
+                case 5:
+                    myWallet(u);
                     break;
                 case 0:
                     System.out.println("Até mais!");
@@ -286,6 +296,10 @@ public class Functions {
         for (int i = 0; i < size; i++) {
             System.out.println(game.get(i));
         }
+    }
+
+    public static void myWallet(User u) {
+        System.out.println("Sua carteira: " + u.getWallet());
     }
 
 }

@@ -10,6 +10,8 @@ public class Publisher {
 
     private ArrayList<Game> releasedGames;
 
+    private double balance;
+
     public Publisher(String companyName) {
         this.companyName = companyName;
         this.releasedGames = new ArrayList<>();
@@ -37,9 +39,16 @@ public class Publisher {
         this.companyName = companyName;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance += balance;
+    }
+
     @Override
     public String toString() {
         return "Publisher [companyName=" + companyName + "]";
     }
-
 }
