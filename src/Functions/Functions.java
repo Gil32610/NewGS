@@ -120,7 +120,12 @@ public class Functions {
         // System.out.println(current.getValue());
         // }
         // }
-        System.out.println(p.getReleasedGames());
+
+        int publisherSize = p.getReleasedGames().size();
+        ArrayList<Game> game = p.getReleasedGames();
+        for (int i = 0; i < publisherSize; i++) {
+            System.out.println(game.get(i));
+        }
     }
 
     private static void devOptions() {
@@ -172,6 +177,7 @@ public class Functions {
         Scanner s = new Scanner(System.in);
         String title;
         Game g;
+        double value;
         boolean affordable, ageCheck;
         int op;
         do {
@@ -192,6 +198,7 @@ public class Functions {
                             }
                         } catch (UnderAgeException ua) {
                             System.out.println(ua.getMessage());
+                            break;
                         }
                         affordable = checkFunds(g, u.getWallet());
                         try {
@@ -200,14 +207,18 @@ public class Functions {
                             }
                         } catch (InsufficientFundsException is) {
                             System.out.println(is.getMessage());
-
+                            break;
                         }
+                        u.setWallet(-g.getPrice());
+                        u.getGameList().add(g);
+                        System.out.println("Jogo comprado!");
                     }
-                    u.setWallet(-g.getPrice());
-                    u.getGameList().add(g);
 
                     break;
                 case 2:
+                    System.out.println("Informe o valor desejado:");
+                    value = Double.parseDouble(s.nextLine());
+                    addFunds(u, value);
                     break;
                 case 3:
                     break;
