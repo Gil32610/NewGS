@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Exception.InsufficientFundsException;
+import Exception.UnderAgeException;
+
 public class Functions {
     public static User registerConsole(boolean flag) {
         Scanner s = new Scanner(System.in);
@@ -61,7 +64,7 @@ public class Functions {
         } catch (IndexOutOfBoundsException io) {
             System.out.println("Classificação inválida, informe valores de 0 a 5:");
             ageRating = rating(Integer.parseInt(s.nextLine()));
-        } catch (InputMismatchException im) {
+        } catch (NumberFormatException im) {
             System.out.println("Entrada inválida. Digite um número de 0 a 5");
             ageRating = rating(Integer.parseInt(s.nextLine()));
         }
@@ -168,7 +171,7 @@ public class Functions {
         Scanner s = new Scanner(System.in);
         String title;
         Game g;
-        boolean affordable;
+        boolean affordable, ageCheck;
         int op;
         do {
             clientOptions();
@@ -181,14 +184,27 @@ public class Functions {
                     if (g == null) {
                         System.out.println("Jogo não existe ou ainda não foi lançado!");
                     } else {
+                        ageCheck = checkAge(g, u);
+                        try {
+                            if (!ageCheck) {
+                                throw new UnderAgeException();
+                            }
+                        } catch (UnderAgeException ua) {
+                            System.out.println(ua.getMessage());
+                        }
                         affordable = checkFunds(g, u.getWallet());
-                        if (affordable) {
-                            u.setWallet(-g.getPrice());
-                            u.getGameList().add(g);
-                        } else {
-                            System.out.println();
+                        try {
+                            if (!affordable) {
+                                throw new InsufficientFundsException();
+                            }
+                        } catch (InsufficientFundsException is) {
+                            System.out.println(is.getMessage());
+
                         }
                     }
+                    u.setWallet(-g.getPrice());
+                    u.getGameList().add(g);
+
                     break;
                 case 2:
                     break;
@@ -201,6 +217,7 @@ public class Functions {
             }
 
         } while (op != 0);
+
     }
 
     public static void addFunds(User u, double value) {
@@ -223,6 +240,27 @@ public class Functions {
         } else {
             return true;
         }
+    }
+
+    public static boolean checkAge(Game g, User u) {
+        ageRating anAge = g.getRating();
+        int age = u.getAge();
+
+        if (anAge == ageRating.L) {
+            return true;
+        } else if (anAge == ageRating.M10 && age >= 10) {
+            return true;
+        } else if (anAge == ageRating.M12 && age >= 12) {
+            return true;
+        } else if (anAge == ageRating.M14 && age >= 14) {
+            return true;
+        } else if (anAge == ageRating.M16 && age >= 16) {
+            return true;
+        } else if (anAge == ageRating.M18 && age >= 18) {
+            return true;
+        }
+        return false;
+
     }
 
 }
