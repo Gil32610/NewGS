@@ -76,8 +76,9 @@ public class Functions {
         dev.getGameList().add(g);
     }
 
-    public void sendGamePublisher(Publisher p, Game g) {
-        p.addGame(g);
+    public static void sendGamePublisher(Publisher p, Game g) {
+        p.getReleasedGames().add(g);
+        System.out.println("Jogo enviado!");
     }
 
     // acessa vetor de enum com indice
@@ -154,7 +155,7 @@ public class Functions {
                     if (g == null) {
                         System.out.println("Jogo não encontrado ou título errado!");
                     } else {
-                        p.getReleasedGames().add(g);
+                        sendGamePublisher(p, g);
                     }
                     break;
                 case 0:
