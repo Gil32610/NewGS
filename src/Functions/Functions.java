@@ -118,17 +118,22 @@ public class Functions {
         // System.out.println(current.getValue());
         // }
         // }
+        if (p.getReleasedGames().isEmpty()) {
+            System.out.println("No games released yet!");
+        } else {
 
-        int publisherSize = p.getReleasedGames().size();
-        ArrayList<Game> game = p.getReleasedGames();
-        for (int i = 0; i < publisherSize; i++) {
-            System.out.println(game.get(i));
+            int publisherSize = p.getReleasedGames().size();
+            ArrayList<Game> game = p.getReleasedGames();
+            for (int i = 0; i < publisherSize; i++) {
+                System.out.println(game.get(i));
+            }
         }
+
     }
 
     private static void devOptions() {
         System.out.println("1 - Desenvolver jogo");
-        System.out.println("2- Enviar para publisher padrão");
+        System.out.println("2 - Enviar para publisher padrão");
         System.out.println("3 - Ver meus jogos");
         System.out.println("0 - Sair");
     }
@@ -216,6 +221,7 @@ public class Functions {
                         u.setWallet(-g.getPrice());
                         p.setBalance(g.getPrice());
                         u.getGameList().add(g);
+                        g.sale();
                         System.out.println("Jogo comprado!");
                     }
 

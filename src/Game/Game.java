@@ -68,7 +68,7 @@ public class Game {
     @Override
     public String toString() {
         return "Game [title=" + title + ", rating=" + rating + ", genre=" + genre + ", releaseDate=" + releaseDate
-                + ", price=" + price + "]";
+                + ", price=" + price + "sold=" + this.sold + "]";
     }
 
     @Override
