@@ -26,10 +26,10 @@ public class Functions {
         nationality = s.nextLine();
         System.out.println("Informe o seu CPF: ");
         cpf = s.nextLine();
-        System.out.println("Informe o seu email:");
-        email = s.nextLine();
         System.out.println("Informe a sua idade: ");
         age = Integer.parseInt(s.nextLine());
+        System.out.println("Informe o seu email:");
+        email = s.nextLine();
         System.out.println("Informe o nome de usuário desejado: ");
         username = s.nextLine();
         System.out.println("Informe a senha desejada: ");
