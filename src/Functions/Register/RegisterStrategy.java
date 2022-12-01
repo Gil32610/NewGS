@@ -1,2 +1,7 @@
-package Functions.Register;public interface RegisterStrategy {
+package Functions.Register;
+
+import Person.User;
+
+public interface RegisterStrategy {
+    public User registerConsole();
 }

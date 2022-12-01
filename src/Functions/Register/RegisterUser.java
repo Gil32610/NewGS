@@ -1,6 +1,5 @@
 package Functions.Register;
 
-import Functions.RegisterStrategy;
 import Person.Developer;
 import Person.User;
 
