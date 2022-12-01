@@ -2,7 +2,7 @@ package Game;
 
 public enum ageRating {
     L("Adequado para todas as idades."),
-    M10("Pode conter cenas de violência e linguagem imprópria moderad."),
+    M10("Pode conter cenas de violência e linguagem imprópria moderados."),
     M12("Pode conter cenas de agressão física, insinuação de consumo de drogas e relações sexuais."),
     M14("Pode conter cenas de Agressão física, consumo explícito de drogas e relações sexuais moderadas."),
     M16("Pode conter cenas de consumo de drogas explícito, agressão física intensa e relações sexuais acentuadas"),
