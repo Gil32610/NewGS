@@ -1,10 +1,9 @@
 package Main;
 
+import Functions.Register.*;
+import Functions.*;
 import Store.*;
 import Person.*;
-import Game.*;
-import Functions.Functions;
-import Exception.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Functions.Login;
@@ -66,6 +65,12 @@ public class Main {
     }
 
     public static void Register(ArrayList<User> list, boolean flag) {
-        list.add(Functions.registerConsole(flag));
+        RegisterStrategy registro;
+        if(flag){
+            registro = new RegisterDev();
+        }else{
+            registro = new RegisterUser();
+        }
+        list.add(registro.registerConsole());
     }
 }
