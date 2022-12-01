@@ -2,7 +2,7 @@ package Exception;
 
 public class UnderAgeException extends RuntimeException {
     public UnderAgeException(){
-        super("Você não é velho o suficiente para este conteúdo!");
+        super("Você não possui idade o suficiente para acessar este conteúdo!");
     }
 
 
