@@ -16,21 +16,35 @@ public class RegisterUser implements RegisterStrategy {
         fullName = s.nextLine();
         System.out.println("Informe a sua nacionalidade: ");
         nationality = s.nextLine();
-        System.out.println("Informe o seu CPF: ");
+        System.out.println("Informe o seu CPF, apenas os numeros: ");
         cpf = s.nextLine();
+
+        int cpfSize = cpf.length();
+
+        while (cpfSize !=11){
+            System.out.println("CPF inválido! Digite novamente");
+            cpf = s.nextLine();
+            cpfSize = cpf.length();
+        }
         System.out.println("Informe o seu email:");
         email = s.nextLine();
+
         System.out.println("Informe a sua idade: ");
         age = Integer.parseInt(s.nextLine());
+        while (age < 0) {
+            System.out.println("Idade inválida! Digite novamente: ");
+            age = Integer.parseInt(s.nextLine());
+        }
+
         System.out.println("Informe o nome de usuário desejado: ");
         username = s.nextLine();
         System.out.println("Informe a senha desejada: ");
         password = s.nextLine();
-        while (age < 0) {
-            System.out.println("Idade inválida! Digite novamente:");
-            age = Integer.parseInt(s.nextLine());
-        }
-            return user = new User(cpf, fullName, nationality, email, username, age, password);
+        System.out.println();
+        System.out.println("Cadastro realizado com sucesso");
+        System.out.println();
+
+        return user = new User(cpf, fullName, nationality, email, username, age, password);
         }
     }
 

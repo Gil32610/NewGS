@@ -57,11 +57,15 @@ public class Main {
     }
 
     public static void options() {
+        System.out.println();
+        System.out.println("Bem vindo à loja GameSotp, selecione uma opção abaixo usando os numeros de 0 a 4");
+        System.out.println();
         System.out.println("1 - Registrar como cliente");
         System.out.println("2 - Registrar como desenvolvedor");
         System.out.println("3 - Login");
         System.out.println("4 - Ver catálogo");
         System.out.println("0 - Encerrar");
+        System.out.println();
     }
 
     public static void Register(ArrayList<User> list, boolean flag) {
