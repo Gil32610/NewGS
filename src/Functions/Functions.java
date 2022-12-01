@@ -24,20 +24,35 @@ public class Functions {
         fullName = s.nextLine();
         System.out.println("Informe a sua nacionalidade: ");
         nationality = s.nextLine();
-        System.out.println("Informe o seu CPF: ");
+        System.out.println("Informe o seu CPF, apenas os numeros: ");
         cpf = s.nextLine();
+
+        int cpfSize = cpf.length();
+
+        while (cpfSize !=11){
+            System.out.println("CPF inválido! Digite novamente");
+            cpf = s.nextLine();
+            cpfSize = cpf.length();
+        }
         System.out.println("Informe o seu email:");
         email = s.nextLine();
+
         System.out.println("Informe a sua idade: ");
         age = Integer.parseInt(s.nextLine());
+        while (age < 0) {
+            System.out.println("Idade inválida! Digite novamente: ");
+            age = Integer.parseInt(s.nextLine());
+        }
+
         System.out.println("Informe o nome de usuário desejado: ");
         username = s.nextLine();
         System.out.println("Informe a senha desejada: ");
         password = s.nextLine();
-        while (age < 0) {
-            System.out.println("Idade inválida! Digite novamente:");
-            age = Integer.parseInt(s.nextLine());
-        }
+        System.out.println();
+        System.out.println("Cadastro realizado com sucesso");
+        System.out.println();
+
+
         if (flag) {
             return dev = new Developer(cpf, fullName, nationality, email, username, age, password);
         } else {
@@ -68,7 +83,7 @@ public class Functions {
         }
         System.out.println("Informe o ano de lançamento: ");
         releaseDate = Integer.parseInt(s.nextLine());
-        System.out.println("Informe o preço");
+        System.out.println("Informe o preço em reais");
         price = Double.parseDouble(s.nextLine());
         g = new Game(gameTitle, ageRating, genre, releaseDate, price);
         dev.getGameList().add(g);
@@ -121,8 +136,13 @@ public class Functions {
 
         int publisherSize = p.getReleasedGames().size();
         ArrayList<Game> game = p.getReleasedGames();
-        for (int i = 0; i < publisherSize; i++) {
-            System.out.println(game.get(i));
+        if(publisherSize ==0){
+            System.out.println("Essa loja está vazia por enquanto! Volta mais tarde!");
+            System.out.println();
+        } else{
+            for (int i = 0; i < publisherSize; i++) {
+                System.out.println(game.get(i));
+            }
         }
     }
 
@@ -189,6 +209,10 @@ public class Functions {
             op = Integer.parseInt(s.nextLine());
             switch (op) {
                 case 1:
+                    System.out.println("Esses são os jogos disponíveis: ");
+                    System.out.println();
+                    showCatalog(p);
+                    System.out.println();
                     System.out.println("Informe o título do jogo:");
                     title = s.nextLine();
                     g = checkGame(title, p.getReleasedGames());
@@ -293,6 +317,7 @@ public class Functions {
     public static void showMyList(User u) {
         ArrayList<Game> game = u.getGameList();
         int size = game.size();
+
         for (int i = 0; i < size; i++) {
             System.out.println(game.get(i));
         }
