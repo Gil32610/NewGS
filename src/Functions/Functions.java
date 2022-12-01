@@ -37,8 +37,18 @@ public class Functions {
         }
         System.out.println("Informe o ano de lançamento: ");
         releaseDate = Integer.parseInt(s.nextLine());
+        while(releaseDate < 1980 || releaseDate > 2022){
+
+            System.out.println("Data de lançamento inválida - Insira Novamente!");
+            releaseDate = Integer.parseInt(s.nextLine());
+        }
         System.out.println("Informe o preço");
         price = Double.parseDouble(s.nextLine());
+        while(price < 0){
+
+            System.out.println("Preço inválido - Insira Novamente!");
+            price = Integer.parseInt(s.nextLine());
+        }
         g = new Game(gameTitle, ageRating, genre, releaseDate, price);
         dev.getGameList().add(g);
     }
