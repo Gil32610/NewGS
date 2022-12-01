@@ -13,37 +13,6 @@ import Exception.InsufficientFundsException;
 import Exception.UnderAgeException;
 
 public class Functions {
-    public static User registerConsole(boolean flag) {
-        Scanner s = new Scanner(System.in);
-        String fullName, email, nationality, cpf, username, password;
-        Integer age;
-        User user;
-        Developer dev;
-
-        System.out.println("Informe o seu nome completo: ");
-        fullName = s.nextLine();
-        System.out.println("Informe a sua nacionalidade: ");
-        nationality = s.nextLine();
-        System.out.println("Informe o seu CPF: ");
-        cpf = s.nextLine();
-        System.out.println("Informe a sua idade: ");
-        age = Integer.parseInt(s.nextLine());
-        System.out.println("Informe o seu email:");
-        email = s.nextLine();
-        System.out.println("Informe o nome de usuário desejado: ");
-        username = s.nextLine();
-        System.out.println("Informe a senha desejada: ");
-        password = s.nextLine();
-        while (age < 0) {
-            System.out.println("Idade inválida! Digite novamente:");
-            age = Integer.parseInt(s.nextLine());
-        }
-        if (flag) {
-            return dev = new Developer(cpf, fullName, nationality, email, username, age, password);
-        } else {
-            return user = new User(cpf, fullName, nationality, email, username, age, password);
-        }
-    }
 
     public static void developGame(User dev) {
         Scanner s = new Scanner(System.in);
