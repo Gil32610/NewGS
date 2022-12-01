@@ -70,7 +70,7 @@ public class Login {
                 password = s.nextLine();
             }
         }
-        System.out.println("Numero de tentativas maxima Atingida");
+        System.out.println("Número máximo de tentativas atingido!");
         return false;
 
     }
